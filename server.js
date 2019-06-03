@@ -7,11 +7,11 @@ const client= new Discord.Client();
 
 var ffmpeg = require('ffmpeg');
 var TwitchApi = require('twitch-api');
-const prefix ='/';
+const prefix ='.';
 const fs = require('fs');
 const config = require("./config.json");
 const ytdl = require('ytdl-core');
-const ownerID = 'Ryce'
+const ownerID = '523836549390139392'
 
 
 const active = new Map();
@@ -19,7 +19,7 @@ const active = new Map();
 
 client.on('ready',()=> {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds`); 
-  client.user.setActivity('/help');
+ 
   
 });
 
@@ -50,12 +50,9 @@ client.on('message',message => {
   console.log(e.stack);
   }  finally {
     console.log(`${message.author.tag} used ${cmd}`);}
-  if (message.content === prefix+'avatar') {
-   
-    message.reply(message.author.avatarURL);
-  }
+  
 });
 
 
 
-client.login('NTE0MzY4MzU1MDI1ODEzNTI2.DtXVtA.EGmwf4-OdsNrsEXmEgkPxznmb_8');
+client.login(process.env.BOT_TOKEN);
